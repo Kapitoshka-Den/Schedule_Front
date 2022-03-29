@@ -1,3 +1,14 @@
+.headPartPage{
+  display: flex;
+  flex-flow: row;
+  background-color: blue;
+  justify-content: space-between;
+}
+.rtk-logo{
+  width: 20%;
+}
+
+
 .App {
   text-align: center;
 }

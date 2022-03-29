@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import SchedulePage from "./Comoponents/SchedulPage";
+import SelectInfo from "./Comoponents/SelectInfo";
 
-function App() {
+const App = () => {
+  const [apiUrlHead, setApiUrlHead] = useState("");
+  const [apiUrlParam, setApiUrlParam] = useState("");
+  const [scheduleItems,setScheduleItem] = useState<any[]>([])
+  
+  function onClick(){
+    async function requestSchedule() {
+      let request = await fetch(`http://89.108.98.73:82/api/ScheduleWorks?paramHead=${apiUrlHead}&paramValue=${apiUrlParam}`);
+      let response = await request.json();
+      setScheduleItem(response);
+      console.log('');
+  }
+  requestSchedule();
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className="headPartPage">
+        <img
+          className="rtk-logo"
+          src="https://spb-rtk.ru/wp-content/themes/spbrtk_f/images/logo.png"
+          alt="RTK-LOGO"
+        />
+        <SelectInfo
+          onClick={onClick}
+          setApiUrlHead={setApiUrlHead}
+          setApiUrlParam={setApiUrlParam}
+          className="selecterInfo"
+        />
       </header>
+      <div className="contentPartPage">
+        <h1>{apiUrlParam}</h1>
+        <SchedulePage apiUrlHead={apiUrlHead} apiUrlParam={apiUrlParam} scheduleItems={scheduleItems}/>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,20 @@
+.selectDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.selcetHead{
+    padding:10px;
+    display: flex;
+    flex-flow: column;
+    align-content:flex-end;
+}
+.buttonStyle{
+    margin-left: 45%;
+    align-self: flex-start;
+}
+
+.selecter{
+    margin-left: 5%;
+    margin-right: 5%;
+}
