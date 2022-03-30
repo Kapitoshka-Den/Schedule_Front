@@ -33,7 +33,7 @@ const App = () => {
         />
       </header>
       <div className="contentPartPage">
-        <h1>{apiUrlParam}</h1>
+        <h1>Группа {apiUrlParam}</h1>
         <SchedulePage apiUrlHead={apiUrlHead} apiUrlParam={apiUrlParam} scheduleItems={scheduleItems}/>
       </div>
     </div>
