@@ -13,7 +13,7 @@ const App = () => {
       let request = await fetch(`http://89.108.98.73:82/api/ScheduleWorks?paramHead=${apiUrlHead}&paramValue=${apiUrlParam}`);
       let response = await request.json();
       setScheduleItem(response);
-      console.log('');
+      console.log(`${apiUrlParam}`);
   }
   requestSchedule();
   }
